@@ -11,14 +11,45 @@ import (
 	"github.com/paulndungu9/book_management_api_with_gqlgen/graph/model"
 )
 
-// CreateTodo is the resolver for the createTodo field.
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
+// CreateBook is the resolver for the createBook field.
+func (r *mutationResolver) CreateBook(ctx context.Context, title string, author *string, publicationYear int, genre string) (*model.Book, error) {
+	panic(fmt.Errorf("not implemented: CreateBook - createBook"))
 }
 
-// Todos is the resolver for the todos field.
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: Todos - todos"))
+// UpdateBook is the resolver for the updateBook field.
+func (r *mutationResolver) UpdateBook(ctx context.Context, id *string, title *string, author *string, publicationYear *int, genre *string) (*model.Book, error) {
+	panic(fmt.Errorf("not implemented: UpdateBook - updateBook"))
+}
+
+// DeleteBook is the resolver for the deleteBook field.
+func (r *mutationResolver) DeleteBook(ctx context.Context, id string) (string, error) {
+	panic(fmt.Errorf("not implemented: DeleteBook - deleteBook"))
+}
+
+// Book is the resolver for the book field.
+func (r *queryResolver) Book(ctx context.Context, id string) (*model.Book, error) {
+	panic(fmt.Errorf("not implemented: Book - book"))
+}
+
+// Books is the resolver for the books field.
+func (r *queryResolver) Books(ctx context.Context) ([]*model.Book, error) {
+	books := []*model.Book{
+		{
+			ID:              "1",
+			Title:           "Black spears",
+			Author:          "kamau mwiru",
+			PublicationYear: 1994,
+			Genre:           "short story",
+		},
+		{
+			ID:              "2",
+			Title:           "dark roads",
+			Author:          "omondi brown",
+			PublicationYear: 2000,
+			Genre:           "poem",
+		},
+	}
+	return books, nil
 }
 
 // Mutation returns MutationResolver implementation.
